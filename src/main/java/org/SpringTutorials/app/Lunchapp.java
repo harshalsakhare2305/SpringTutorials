@@ -12,7 +12,7 @@ public class Lunchapp {
 
         ApplicationContext container = new ClassPathXmlApplicationContext("applicationcontext.xml");
 
-       ICourse springCourse = container.getBean(SpringCourse.class);
+       MyClass springCourse = container.getBean(MyClass.class);
 
        springCourse.buyCourse(8000);
     }
