@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean Definitions -->
+
+  <bean class="org.SpringTutorials.services.SpringCourse" id="spring" />
+  <bean  class="org.SpringTutorials.services.JavaCourse" id="java"/>
+
+    <bean class="org.SpringTutorials.app.MyClass" id="Myclass">
+
+        <property ref="spring" name="course" ></property>
+
+    </bean>
+
+</beans>
