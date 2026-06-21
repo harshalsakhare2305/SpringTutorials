@@ -13,7 +13,9 @@
 
     <bean class="org.SpringTutorials.app.MyClass" id="Myclass">
 
-        <property ref="spring" name="course" ></property>
+<!--        <property ref="spring" name="course" ></property>-->
+
+        <constructor-arg ref="java" name="course" ></constructor-arg>
 
     </bean>
 
