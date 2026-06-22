@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="e1"  class="org.SpringTutorials.services.Employee">
+
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="3" value="22"/>
+        <constructor-arg index="1" value="Harshal"/>
+        <constructor-arg index="2" value="1169088"/>
+    </bean>
+
+    <bean id="e2"  class="org.SpringTutorials.services.Employee">
+
+        <constructor-arg index="0" value="2"/>
+        <constructor-arg  value="Pranav"/>
+        <constructor-arg  value="8228555"/>
+        <constructor-arg value="22"/>
+    </bean>
+
+</beans>
