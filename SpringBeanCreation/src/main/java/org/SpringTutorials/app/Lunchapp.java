@@ -10,7 +10,7 @@ public class Lunchapp {
     public static void main(String[] args) {
 
 
-        ApplicationContext container = new ClassPathXmlApplicationContext("applicationcontext.xml");
+        ApplicationContext container = new ClassPathXmlApplicationContext("applicationconfig2.xml");
 
        MyClass springCourse = container.getBean(MyClass.class);
 

@@ -8,14 +8,19 @@
 
     <!-- Bean Definitions -->
 
-  <bean class="org.SpringTutorials.services.SpringCourse" id="spring" />
-  <bean  class="org.SpringTutorials.services.JavaCourse" id="java"/>
+  <bean class="org.SpringTutorials.services.SpringCourse" id="spring" autowire-candidate="false"  />
+<!--  <bean  class="org.SpringTutorials.services.JavaCourse" id="java" primary="true"/>-->
 
-    <bean class="org.SpringTutorials.app.MyClass" id="Myclass">
+    <bean  class="org.SpringTutorials.services.JavaCourse" id="java" />
 
+<!--    <bean class="org.SpringTutorials.app.MyClass" id="Myclass" autowire="constructor"/>-->
+
+<!--    <bean class="org.SpringTutorials.app.MyClass" id="Myclass" autowire="byType"/>-->
+
+    <bean class="org.SpringTutorials.app.MyClass" id="Myclass" >
 <!--        <property ref="spring" name="course" ></property>-->
 
-        <constructor-arg ref="java" name="course" ></constructor-arg>
+<!--        <constructor-arg ref="java" name="course" ></constructor-arg>-->
 
     </bean>
 
