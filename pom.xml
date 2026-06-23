@@ -21,6 +21,7 @@
         <module>SpringBeanCreation</module>
         <module>AnnotationBeans</module>
         <module>IOCContainer</module>
+        <module>SpringJDBC_API</module>
     </modules>
 
 
