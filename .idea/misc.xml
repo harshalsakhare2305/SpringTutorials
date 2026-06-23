@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/IOCContainer/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringJDBC_API/pom.xml" />
       </list>
     </option>
   </component>
