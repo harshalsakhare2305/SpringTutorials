@@ -12,7 +12,7 @@ public interface IVaccineService {
 
     public Boolean isVacchineExist(Integer id);
 
-
+    public String removeVaccineById(Integer id);
 
 
 

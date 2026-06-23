@@ -43,4 +43,16 @@ public class VaccineServiceImpl implements IVaccineService{
     public Boolean isVacchineExist(Integer id) {
         return vaccineRepo.existsById(id);
     }
+
+    @Override
+    public String removeVaccineById(Integer id) {
+        Optional<Vaccine> option =vaccineRepo.findById(id);
+
+        if(option.isPresent()){
+            vaccineRepo.deleteById(id);
+
+            return new String("Vaccine with id "+ id + " is removed successfully");
+        }
+        return "No such Vaccine Exists";
+    }
 }
