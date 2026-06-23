@@ -1,4 +1,4 @@
-package org.springboottutorials.ioccontainer.services;
+package org.springboottutorials.ioccontainer.greeting.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

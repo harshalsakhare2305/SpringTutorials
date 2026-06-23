@@ -1,4 +1,4 @@
-package org.springboottutorials.ioccontainer.config;
+package org.springboottutorials.ioccontainer.greeting.config;
 
 
 import org.springframework.context.annotation.Bean;
