@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/SpringJDBC_API/pom.xml" />
         <option value="$PROJECT_DIR$/SpringDataJDBC/pom.xml" />
         <option value="$PROJECT_DIR$/SpringDataJPA/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringDataJPA/VaccineManagement_SpringJPA/pom.xml" />
+        <option value="$PROJECT_DIR$/VaccineManagement/pom.xml" />
       </list>
     </option>
   </component>
