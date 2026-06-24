@@ -13,9 +13,9 @@ public class VaccineManagement {
 
         VaccineService pageorsortService = container.getBean(VaccineService.class);
 
-       // pageorsortService.findAllVaccineRecord(true,"name").forEach(v-> System.out.println(v));
+        pageorsortService.findAllVaccineRecord(true,"name").forEach(v-> System.out.println(v));
 
-        pageorsortService.findAllVaccinePageRecord(0,3).getContent().forEach(v-> System.out.println(v));
+      //  pageorsortService.findAllVaccinePageRecord(0,3).getContent().forEach(v-> System.out.println(v));
     }
 }
 
