@@ -13,7 +13,9 @@ public class StaticandDynamicProjection {
 
         IVaccineService service = container.getBean("StaticVaccineService", VaccineService.class);
 
-        service.findVaccinesbyPriceLessThan(200.00).forEach(v-> System.out.println(v.getName()+" "+v.getOwner()));
+     //   service.findVaccinesbyPriceLessThan(200.00).forEach(v-> System.out.println(v.getName()+" "+v.getOwner()));
+
+        service.findVaccinesByOwner("Govt").forEach(e-> System.out.println(e.getName()+" "+e.getOwner()));
 
     }
 }

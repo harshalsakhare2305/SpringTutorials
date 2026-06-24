@@ -23,4 +23,9 @@ public class VaccineService implements IVaccineService {
     public List<ResultView> findVaccinesbyPriceLessThan(Double price) {
         return repo.findByPriceLessThanEqual(price);
     }
+
+    @Override
+    public List<ResultView> findVaccinesByOwner(String owner) {
+        return repo.findByOwner(owner);
+    }
 }

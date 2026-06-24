@@ -13,5 +13,7 @@ public interface IVaccineRepo3 extends JpaRepository<Vaccine,Integer> {
 
     List<ResultView> findByPriceLessThanEqual(Double price);
 
+    List<ResultView> findByOwner(String owner);
+
 
 }

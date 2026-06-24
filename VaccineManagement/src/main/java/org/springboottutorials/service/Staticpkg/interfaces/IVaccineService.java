@@ -7,4 +7,6 @@ import java.util.List;
 public interface IVaccineService {
 
     List<ResultView> findVaccinesbyPriceLessThan(Double price);
+
+    List<ResultView> findVaccinesByOwner(String owner);
 }
