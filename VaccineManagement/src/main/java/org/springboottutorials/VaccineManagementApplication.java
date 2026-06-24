@@ -19,17 +19,19 @@ public class VaccineManagementApplication {
 
       //  vaccineService.addVaccine(new Vaccine(1,"Polio","WHO",156.02));
 
-//        Vaccine v1 =new Vaccine(1,"Polio","WHO",156.02);
-//        Vaccine v2 =new Vaccine(2,"CoVaxin","BharatBiotech",1500.00);
-//        Vaccine v3 =new Vaccine(3,"CoviSheild","Serum",560.0);
-//
-//        ArrayList<Vaccine>vaccines =new ArrayList<>();
-//
-//        vaccines.add(v1);
-//        vaccines.add(v2);
-//        vaccines.add(v3);
-//
-//        vaccineService.addAllVaccines(vaccines).forEach(v-> System.out.println(v));
+        Vaccine v1 =new Vaccine(6,"HIV","WHO",1026.02);
+        Vaccine v2 =new Vaccine(7,"Dengue","Govt",112.156);
+        Vaccine v3 =new Vaccine(8,"Malaria","Govt",165.15);
+        Vaccine v4 =new Vaccine(9,"Typhoid","Govt",85.98);
+
+        ArrayList<Vaccine>vaccines =new ArrayList<>();
+
+        vaccines.add(v1);
+        vaccines.add(v2);
+        vaccines.add(v3);
+        vaccines.add(v4);
+
+        vaccineService.addAllVaccines(vaccines).forEach(v-> System.out.println(v));
 //
 //        Vaccine v = vaccineService.findVaccineById(2);
 //        System.out.println("Vaccine with id 2 is "+ v);
@@ -39,7 +41,7 @@ public class VaccineManagementApplication {
 //        if(status) System.out.println("Yes");
 //        else System.out.println("No");
 
-        System.out.println(vaccineService.removeVaccineById(2));
+    //    System.out.println(vaccineService.removeVaccineById(2));
 
 
 
