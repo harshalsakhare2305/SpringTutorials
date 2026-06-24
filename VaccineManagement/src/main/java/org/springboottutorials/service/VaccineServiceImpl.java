@@ -1,7 +1,7 @@
 package org.springboottutorials.service;
 
 import org.springboottutorials.entity.Vaccine;
-import org.springboottutorials.exceptions.VaccineNotFoundException;
+
 import org.springboottutorials.repo.IVaccineRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
