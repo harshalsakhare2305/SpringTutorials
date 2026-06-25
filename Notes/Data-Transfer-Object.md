@@ -18,7 +18,7 @@ The DTO is your **controlled, intentional API contract** — you decide exactly 
 
 ## Flow Diagram
 
-![DTO Flow in a Spring Boot application](Notes/diagrams/dto-flow.svg)
+![DTO Flow in a Spring Boot application](./diagrams/dto-flow.svg)
 
 > The client always talks to a DTO — never to the Entity directly.
 > - **Request DTO** → carries client input into the service layer
