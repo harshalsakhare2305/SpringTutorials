@@ -18,15 +18,30 @@ public class VaccineManagent1 {
         VaccineService2 service = container.getBean(VaccineService2.class);
 
       //  System.out.println(service.GetTheVaccineById(1));
+//
+//        List<Vaccine> vaccineList =new ArrayList<>();
+//     //   Vaccine v1 =new Vaccine(6,"HIV","WHO",1026.02);
+//       Vaccine v2 =new Vaccine(100,"Denge","Got",112.56);
+//
+//  //     vaccineList.add(v1);
+//       vaccineList.add(v2);
+//
+//        System.out.println(service.RemoveVaccineInBatch(vaccineList));
 
-        List<Vaccine> vaccineList =new ArrayList<>();
-     //   Vaccine v1 =new Vaccine(6,"HIV","WHO",1026.02);
-       Vaccine v2 =new Vaccine(100,"Denge","Got",112.56);
 
-  //     vaccineList.add(v1);
-       vaccineList.add(v2);
+           //Search Operation
+       // service.fetchVaccineByName("Polio").forEach(v-> System.out.println(v));
 
-        System.out.println(service.RemoveVaccineInBatch(vaccineList));
+        // Insert Operation
+
+      //  service.AddnewVaccine(26,"Devi","Govt",45.02);
+
+        //Update Opetation
+
+      //  service.UpdateVaccinePriceByName("Devi",145.20);
+
+        //Delete Op
+        service.DeleteVaccineByOwner("WHO");
 
     }
 }
