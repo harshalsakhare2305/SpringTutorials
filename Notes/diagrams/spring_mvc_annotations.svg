@@ -1,0 +1,150 @@
+<svg width="720" height="540" viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" font-family="monospace, sans-serif">
+
+  <!-- Background -->
+  <rect width="720" height="540" fill="#0d1117" rx="12"/>
+
+  <!-- Title -->
+  <text x="360" y="34" text-anchor="middle" font-size="16" font-weight="bold" fill="#e6edf3">Spring MVC — Key Annotations</text>
+
+  <!-- ===== COLUMN HEADERS ===== -->
+  <rect x="20" y="48" width="160" height="28" rx="6" fill="#1a1f2e" stroke="#4b9eff" stroke-width="1"/>
+  <text x="100" y="67" text-anchor="middle" font-size="12" font-weight="bold" fill="#4b9eff">CONTROLLER</text>
+
+  <rect x="195" y="48" width="160" height="28" rx="6" fill="#1a1f2e" stroke="#86efac" stroke-width="1"/>
+  <text x="275" y="67" text-anchor="middle" font-size="12" font-weight="bold" fill="#86efac">MAPPING</text>
+
+  <rect x="370" y="48" width="160" height="28" rx="6" fill="#1a1f2e" stroke="#fbbf24" stroke-width="1"/>
+  <text x="450" y="67" text-anchor="middle" font-size="12" font-weight="bold" fill="#fbbf24">PARAMETER</text>
+
+  <rect x="545" y="48" width="155" height="28" rx="6" fill="#1a1f2e" stroke="#f97316" stroke-width="1"/>
+  <text x="622" y="67" text-anchor="middle" font-size="12" font-weight="bold" fill="#f97316">REST</text>
+
+  <!-- ===== CONTROLLER column ===== -->
+  <!-- @Controller -->
+  <rect x="20" y="88" width="160" height="72" rx="6" fill="#161b22" stroke="#4b9eff" stroke-width="1"/>
+  <text x="100" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#4b9eff">@Controller</text>
+  <line x1="30" y1="113" x2="170" y2="113" stroke="#4b9eff" stroke-width="0.5" opacity="0.4"/>
+  <text x="100" y="128" text-anchor="middle" font-size="10" fill="#8b949e">Marks class as</text>
+  <text x="100" y="143" text-anchor="middle" font-size="10" fill="#8b949e">MVC controller.</text>
+  <text x="100" y="153" text-anchor="middle" font-size="10" fill="#8b949e">Returns view name.</text>
+
+  <!-- @ControllerAdvice -->
+  <rect x="20" y="172" width="160" height="72" rx="6" fill="#161b22" stroke="#4b9eff" stroke-width="1"/>
+  <text x="100" y="191" text-anchor="middle" font-size="11" font-weight="bold" fill="#4b9eff">@ControllerAdvice</text>
+  <line x1="30" y1="197" x2="170" y2="197" stroke="#4b9eff" stroke-width="0.5" opacity="0.4"/>
+  <text x="100" y="212" text-anchor="middle" font-size="10" fill="#8b949e">Global exception</text>
+  <text x="100" y="227" text-anchor="middle" font-size="10" fill="#8b949e">handler across</text>
+  <text x="100" y="237" text-anchor="middle" font-size="10" fill="#8b949e">all controllers.</text>
+
+  <!-- @ResponseStatus -->
+  <rect x="20" y="256" width="160" height="72" rx="6" fill="#161b22" stroke="#4b9eff" stroke-width="1"/>
+  <text x="100" y="275" text-anchor="middle" font-size="11" font-weight="bold" fill="#4b9eff">@ResponseStatus</text>
+  <line x1="30" y1="281" x2="170" y2="281" stroke="#4b9eff" stroke-width="0.5" opacity="0.4"/>
+  <text x="100" y="296" text-anchor="middle" font-size="10" fill="#8b949e">Sets HTTP status</text>
+  <text x="100" y="311" text-anchor="middle" font-size="10" fill="#8b949e">code on method</text>
+  <text x="100" y="321" text-anchor="middle" font-size="10" fill="#8b949e">e.g. 201 CREATED.</text>
+
+  <!-- ===== MAPPING column ===== -->
+  <!-- @RequestMapping -->
+  <rect x="195" y="88" width="160" height="72" rx="6" fill="#161b22" stroke="#86efac" stroke-width="1"/>
+  <text x="275" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#86efac">@RequestMapping</text>
+  <line x1="205" y1="113" x2="345" y2="113" stroke="#86efac" stroke-width="0.5" opacity="0.4"/>
+  <text x="275" y="128" text-anchor="middle" font-size="10" fill="#8b949e">Maps any HTTP</text>
+  <text x="275" y="143" text-anchor="middle" font-size="10" fill="#8b949e">method. Use on</text>
+  <text x="275" y="153" text-anchor="middle" font-size="10" fill="#8b949e">class or method.</text>
+
+  <!-- @GetMapping -->
+  <rect x="195" y="172" width="160" height="72" rx="6" fill="#161b22" stroke="#86efac" stroke-width="1"/>
+  <text x="275" y="191" text-anchor="middle" font-size="12" font-weight="bold" fill="#86efac">@GetMapping</text>
+  <line x1="205" y1="197" x2="345" y2="197" stroke="#86efac" stroke-width="0.5" opacity="0.4"/>
+  <text x="275" y="212" text-anchor="middle" font-size="10" fill="#8b949e">Shortcut for</text>
+  <text x="275" y="227" text-anchor="middle" font-size="10" fill="#8b949e">GET requests.</text>
+  <text x="275" y="237" text-anchor="middle" font-size="10" fill="#8b949e">Use for reading.</text>
+
+  <!-- @PostMapping -->
+  <rect x="195" y="256" width="160" height="72" rx="6" fill="#161b22" stroke="#86efac" stroke-width="1"/>
+  <text x="275" y="275" text-anchor="middle" font-size="12" font-weight="bold" fill="#86efac">@PostMapping</text>
+  <line x1="205" y1="281" x2="345" y2="281" stroke="#86efac" stroke-width="0.5" opacity="0.4"/>
+  <text x="275" y="296" text-anchor="middle" font-size="10" fill="#8b949e">Shortcut for POST.</text>
+  <text x="275" y="311" text-anchor="middle" font-size="10" fill="#8b949e">Use for creating</text>
+  <text x="275" y="321" text-anchor="middle" font-size="10" fill="#8b949e">or form submit.</text>
+
+  <!-- @PutMapping / @DeleteMapping -->
+  <rect x="195" y="340" width="160" height="72" rx="6" fill="#161b22" stroke="#86efac" stroke-width="1"/>
+  <text x="275" y="359" text-anchor="middle" font-size="11" font-weight="bold" fill="#86efac">@PutMapping</text>
+  <text x="275" y="373" text-anchor="middle" font-size="11" font-weight="bold" fill="#86efac">@DeleteMapping</text>
+  <line x1="205" y1="378" x2="345" y2="378" stroke="#86efac" stroke-width="0.5" opacity="0.4"/>
+  <text x="275" y="393" text-anchor="middle" font-size="10" fill="#8b949e">PUT = update,</text>
+  <text x="275" y="405" text-anchor="middle" font-size="10" fill="#8b949e">DELETE = remove.</text>
+
+  <!-- ===== PARAMETER column ===== -->
+  <!-- @PathVariable -->
+  <rect x="370" y="88" width="160" height="72" rx="6" fill="#161b22" stroke="#fbbf24" stroke-width="1"/>
+  <text x="450" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#fbbf24">@PathVariable</text>
+  <line x1="380" y1="113" x2="520" y2="113" stroke="#fbbf24" stroke-width="0.5" opacity="0.4"/>
+  <text x="450" y="128" text-anchor="middle" font-size="10" fill="#8b949e">Gets value from</text>
+  <text x="450" y="143" text-anchor="middle" font-size="10" fill="#8b949e">URL: /users/{id}</text>
+  <text x="450" y="153" text-anchor="middle" font-size="10" fill="#8b949e">→ Long id</text>
+
+  <!-- @RequestParam -->
+  <rect x="370" y="172" width="160" height="72" rx="6" fill="#161b22" stroke="#fbbf24" stroke-width="1"/>
+  <text x="450" y="191" text-anchor="middle" font-size="12" font-weight="bold" fill="#fbbf24">@RequestParam</text>
+  <line x1="380" y1="197" x2="520" y2="197" stroke="#fbbf24" stroke-width="0.5" opacity="0.4"/>
+  <text x="450" y="212" text-anchor="middle" font-size="10" fill="#8b949e">Reads query param:</text>
+  <text x="450" y="227" text-anchor="middle" font-size="10" fill="#8b949e">/search?q=hi</text>
+  <text x="450" y="237" text-anchor="middle" font-size="10" fill="#8b949e">→ String q</text>
+
+  <!-- @RequestBody -->
+  <rect x="370" y="256" width="160" height="72" rx="6" fill="#161b22" stroke="#fbbf24" stroke-width="1"/>
+  <text x="450" y="275" text-anchor="middle" font-size="12" font-weight="bold" fill="#fbbf24">@RequestBody</text>
+  <line x1="380" y1="281" x2="520" y2="281" stroke="#fbbf24" stroke-width="0.5" opacity="0.4"/>
+  <text x="450" y="296" text-anchor="middle" font-size="10" fill="#8b949e">Deserializes JSON</text>
+  <text x="450" y="311" text-anchor="middle" font-size="10" fill="#8b949e">body → Java object.</text>
+  <text x="450" y="321" text-anchor="middle" font-size="10" fill="#8b949e">Used in REST APIs.</text>
+
+  <!-- @ModelAttribute -->
+  <rect x="370" y="340" width="160" height="72" rx="6" fill="#161b22" stroke="#fbbf24" stroke-width="1"/>
+  <text x="450" y="359" text-anchor="middle" font-size="12" font-weight="bold" fill="#fbbf24">@ModelAttribute</text>
+  <line x1="380" y1="365" x2="520" y2="365" stroke="#fbbf24" stroke-width="0.5" opacity="0.4"/>
+  <text x="450" y="380" text-anchor="middle" font-size="10" fill="#8b949e">Binds form fields</text>
+  <text x="450" y="395" text-anchor="middle" font-size="10" fill="#8b949e">to a Java object</text>
+  <text x="450" y="405" text-anchor="middle" font-size="10" fill="#8b949e">automatically.</text>
+
+  <!-- ===== REST column ===== -->
+  <!-- @RestController -->
+  <rect x="545" y="88" width="155" height="72" rx="6" fill="#161b22" stroke="#f97316" stroke-width="1"/>
+  <text x="622" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#f97316">@RestController</text>
+  <line x1="555" y1="113" x2="690" y2="113" stroke="#f97316" stroke-width="0.5" opacity="0.4"/>
+  <text x="622" y="128" text-anchor="middle" font-size="10" fill="#8b949e">= @Controller +</text>
+  <text x="622" y="143" text-anchor="middle" font-size="10" fill="#8b949e">@ResponseBody.</text>
+  <text x="622" y="153" text-anchor="middle" font-size="10" fill="#8b949e">Returns JSON.</text>
+
+  <!-- @ResponseBody -->
+  <rect x="545" y="172" width="155" height="72" rx="6" fill="#161b22" stroke="#f97316" stroke-width="1"/>
+  <text x="622" y="191" text-anchor="middle" font-size="12" font-weight="bold" fill="#f97316">@ResponseBody</text>
+  <line x1="555" y1="197" x2="690" y2="197" stroke="#f97316" stroke-width="0.5" opacity="0.4"/>
+  <text x="622" y="212" text-anchor="middle" font-size="10" fill="#8b949e">Writes return</text>
+  <text x="622" y="227" text-anchor="middle" font-size="10" fill="#8b949e">value directly to</text>
+  <text x="622" y="237" text-anchor="middle" font-size="10" fill="#8b949e">HTTP response.</text>
+
+  <!-- @ExceptionHandler -->
+  <rect x="545" y="256" width="155" height="72" rx="6" fill="#161b22" stroke="#f97316" stroke-width="1"/>
+  <text x="622" y="275" text-anchor="middle" font-size="11" font-weight="bold" fill="#f97316">@ExceptionHandler</text>
+  <line x1="555" y1="281" x2="690" y2="281" stroke="#f97316" stroke-width="0.5" opacity="0.4"/>
+  <text x="622" y="296" text-anchor="middle" font-size="10" fill="#8b949e">Handles specific</text>
+  <text x="622" y="311" text-anchor="middle" font-size="10" fill="#8b949e">exception types</text>
+  <text x="622" y="321" text-anchor="middle" font-size="10" fill="#8b949e">in a controller.</text>
+
+  <!-- @CrossOrigin -->
+  <rect x="545" y="340" width="155" height="72" rx="6" fill="#161b22" stroke="#f97316" stroke-width="1"/>
+  <text x="622" y="359" text-anchor="middle" font-size="12" font-weight="bold" fill="#f97316">@CrossOrigin</text>
+  <line x1="555" y1="365" x2="690" y2="365" stroke="#f97316" stroke-width="0.5" opacity="0.4"/>
+  <text x="622" y="380" text-anchor="middle" font-size="10" fill="#8b949e">Enables CORS for</text>
+  <text x="622" y="395" text-anchor="middle" font-size="10" fill="#8b949e">cross-origin HTTP</text>
+  <text x="622" y="405" text-anchor="middle" font-size="10" fill="#8b949e">requests.</text>
+
+  <!-- Footer -->
+  <text x="360" y="510" text-anchor="middle" font-size="11" fill="#6e7681">Use @Controller for views (JSP/HTML) · Use @RestController for JSON APIs</text>
+  <text x="360" y="528" text-anchor="middle" font-size="11" fill="#6e7681">Mapping annotations are shorthand for @RequestMapping(method = RequestMethod.XYZ)</text>
+
+</svg>
