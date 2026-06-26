@@ -33,7 +33,8 @@ A single **DispatcherServlet** receives every HTTP request and routes it to the 
 
 ## Request Lifecycle Flow
 
-![Spring MVC Request Lifecycle](../diagram/spring_mvc_flow.svg)
+![Spring MVC Request Lifecycle](../diagrams/spring_mvc_flow.svg)
+
 
 **Step-by-step:**
 
