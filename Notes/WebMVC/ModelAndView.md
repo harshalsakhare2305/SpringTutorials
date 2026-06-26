@@ -44,7 +44,9 @@
     ▼
  Browser
 ```
+## Flow Diagram
 
+![DTO Flow in a Spring Boot application](../diagrams/spring_mvc_model_view.png)
 ---
 
 ## What is MVC?
