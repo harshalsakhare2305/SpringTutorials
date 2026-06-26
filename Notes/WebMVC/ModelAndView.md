@@ -46,7 +46,7 @@
 ```
 ## Flow Diagram
 
-![DTO Flow in a Spring Boot application](../diagrams/spring_mvc_model_view.png)
+![DTO Flow in a Spring Boot application](../diagrams/spring_mvc_model_view.svg)
 ---
 
 ## What is MVC?
