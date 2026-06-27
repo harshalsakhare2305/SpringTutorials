@@ -1,0 +1,46 @@
+package org.springboottutorials.entity;
+
+public class Employee {
+
+    private String name;
+    private String email;
+    private String city;
+
+
+    public Employee(String name, String email, String city) {
+        this.name = name;
+        this.email = email;
+        this.city = city;
+    }
+
+    public Employee() {
+    }
+
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+
+    }
+}
