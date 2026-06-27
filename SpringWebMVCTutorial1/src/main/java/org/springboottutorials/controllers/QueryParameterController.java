@@ -19,12 +19,19 @@ public class QueryParameterController {
         return "profile";
     }
 
+    // This is the path parameter
     @GetMapping("/profile/{name}")
     public String getCustomGreetings(@PathVariable("name") String name, Model model){
         System.out.println("Inside Query Controller");
        // User user =new User(name,22,"Mumbai");
          model.addAttribute("msg","Good Morning "+name +" , Welcome to Our New SpringBoot Course");
        // model.addAttribute("Profile",user);
+        return "customProfile";
+    }
+
+    @GetMapping("/greetings")
+    public String getPathParameterGreeting(String name,Model model){
+        model.addAttribute("msg","Good Morning "+name +" , Welcome to Our New SpringBoot Course");
         return "customProfile";
     }
 }
