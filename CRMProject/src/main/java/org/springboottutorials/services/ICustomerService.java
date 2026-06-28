@@ -9,4 +9,6 @@ public interface ICustomerService {
     public List<Customer> getAllCustomerList();
 
     public void RegisternewCustomer(Customer customer);
+
+    public Customer getCustomerByid(Long id);
 }

@@ -42,10 +42,12 @@ public class CustomerController {
         return "redirect:/ctxinfo";
     }
 
-//     @GetMapping("/update/{id}")
-//    public String updateCustomerDetails(@PathVariable Long id,Model model){
-//
-//     }
+     @GetMapping("/update/{id}")
+    public String updateCustomerDetails(@PathVariable Long id,Model model){
+          Customer customer = service.getCustomerByid(id);
+          model.addAttribute("updatecustomer",customer);
+          return "updateform";
+     }
 
 
 

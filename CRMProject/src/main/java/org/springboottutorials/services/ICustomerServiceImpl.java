@@ -5,7 +5,9 @@ import org.springboottutorials.repo.ICustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ICustomerServiceImpl implements ICustomerService{
@@ -27,4 +29,12 @@ public class ICustomerServiceImpl implements ICustomerService{
     public void RegisternewCustomer(Customer customer) {
         repo.save(customer);
     }
+
+    @Override
+    public Customer getCustomerByid(Long id) {
+        Optional<Customer> option = repo.findById(id.toString());
+        return option.get();
+    }
+
+
 }
