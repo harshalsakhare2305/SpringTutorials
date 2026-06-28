@@ -58,6 +58,13 @@ public class CustomerController {
      }
 
 
+    @GetMapping("/delete/{id}")
+    public String DeleteCustomeRecord(@PathVariable Long id,Model model){
+        service.DeleteCustomerRecord(service.getCustomerByid(id));
+        return "redirect:/ctxinfo";
+    }
+
+
 
 
 

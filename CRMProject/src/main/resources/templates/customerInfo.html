@@ -62,14 +62,7 @@
 
                 <!-- Uncomment after creating delete mapping -->
 
-                <!--
-                <a
-                   th:href="@{/delete/{id}(id=${customer.C_id})}"
-                   class="delete-btn"
-                   onclick="return confirm('Delete this customer?')">
-                    Delete
-                </a>
-                -->
+
 
                 <button class="edit-btn"> <a
                         th:href="@{/update/{id}(id=${customer.C_id})}"
@@ -77,7 +70,17 @@
                     Update
                 </a></button>
 
-                <button class="delete-btn" disabled>Delete</button>
+                <button class="delete-btn">
+
+                    <a
+                            th:href="@{/delete/{id}(id=${customer.C_id})}"
+                            methods="POST"
+                            class="delete-btn"
+                            onclick="return confirm('Delete this customer?')">
+                        Delete
+                    </a>
+
+                </button>
 
             </td>
 
