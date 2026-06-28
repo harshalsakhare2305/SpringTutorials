@@ -10,7 +10,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String C_id;
+    private Long C_id;
 
     private String first_name;
 
@@ -32,7 +32,7 @@ public class Customer {
     }
 
 
-    public String getC_id(){
+    public Long getC_id(){
         return C_id;
     }
 

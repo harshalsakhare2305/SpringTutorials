@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Customer Information</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Customer Details</h1>
+
+    <div class="top-btn">
+
+        <a th:href="@{/form}" class="btn">
+            Add Customer
+        </a>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Action</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="customer : ${customers}">
+
+            <td th:text="${customer.C_id}"></td>
+
+            <td th:text="${customer.first_name}"></td>
+
+            <td th:text="${customer.last_name}"></td>
+
+            <td th:text="${customer.email}"></td>
+
+            <td th:text="${customer.city}"></td>
+
+            <td>
+
+                <!-- Uncomment after creating update mapping -->
+
+                <!--
+                <a
+                   th:href="@{/update/{id}(id=${customer.C_id})}"
+                   class="edit-btn">
+                    Update
+                </a>
+                -->
+
+                <!-- Uncomment after creating delete mapping -->
+
+                <!--
+                <a
+                   th:href="@{/delete/{id}(id=${customer.C_id})}"
+                   class="delete-btn"
+                   onclick="return confirm('Delete this customer?')">
+                    Delete
+                </a>
+                -->
+
+                <button class="edit-btn" disabled>Update</button>
+
+                <button class="delete-btn" disabled>Delete</button>
+
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>
