@@ -45,8 +45,16 @@ public class CustomerController {
      @GetMapping("/update/{id}")
     public String updateCustomerDetails(@PathVariable Long id,Model model){
           Customer customer = service.getCustomerByid(id);
-          model.addAttribute("updatecustomer",customer);
+          model.addAttribute("customer",customer);
           return "updateform";
+     }
+
+     @PostMapping("/update/{id}")
+     public String UpdateCustomeRecord(@PathVariable Long id,@ModelAttribute Customer customer,Model model){
+           service.UpdateCustomerRecord(customer);
+         System.out.println("ID = " + customer.getC_id());
+           model.addAttribute("updatedCustomer",customer);
+           return "redirect:/ctxinfo";
      }
 
 

@@ -11,4 +11,10 @@ public interface ICustomerService {
     public void RegisternewCustomer(Customer customer);
 
     public Customer getCustomerByid(Long id);
+
+    public void UpdateCustomerRecord(Customer customer);
+
+    public void DeleteCustomerRecord(Customer customer);
+
+
 }

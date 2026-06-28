@@ -36,6 +36,10 @@ public class Customer {
         return C_id;
     }
 
+    public void setC_id(Long c_id) {
+        this.C_id = c_id;
+    }
+
 
     public String getCity() {
         return city;
@@ -67,6 +71,8 @@ public class Customer {
     public String getLast_name() {
         return last_name;
     }
+
+
 
     public Customer setLast_name(String last_name) {
         this.last_name = last_name;

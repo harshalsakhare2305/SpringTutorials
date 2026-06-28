@@ -36,5 +36,15 @@ public class ICustomerServiceImpl implements ICustomerService{
         return option.get();
     }
 
+    @Override
+    public void UpdateCustomerRecord(Customer customer) {
+        repo.save(customer);
+    }
+
+    @Override
+    public void DeleteCustomerRecord(Customer customer) {
+        repo.delete(customer);
+    }
+
 
 }
