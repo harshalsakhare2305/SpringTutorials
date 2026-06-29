@@ -60,4 +60,19 @@ public class ITouristServiceImpl implements ITouristService{
 
 
     }
+
+
+    @Override
+    public String updateTouristrecord2(Tourist tourist) throws TouristNotFoundException {
+        Optional<Tourist> option = repo.findById(tourist.getId()
+        );
+
+        if(option.isPresent()){
+            repo.save(tourist);
+            return new String("Record is Updated Successfully");
+        }else{
+            throw new TouristNotFoundException("Tourist with the id : "+ tourist.getId() + " Not Found so Cant be Updated");
+        }
+
+    }
 }

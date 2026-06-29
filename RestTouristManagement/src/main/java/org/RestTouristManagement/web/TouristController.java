@@ -60,6 +60,17 @@ public class TouristController {
         }
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<String> UpdateTourist2(@RequestBody Tourist tourist){
+
+        try {
+            String msg = service.updateTouristrecord2(tourist);
+            return new ResponseEntity<String>(msg,HttpStatus.OK);
+        }catch (TouristNotFoundException e){
+            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
 
 }
