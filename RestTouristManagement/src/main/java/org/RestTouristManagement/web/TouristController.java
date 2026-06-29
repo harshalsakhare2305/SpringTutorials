@@ -82,6 +82,17 @@ public class TouristController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteTouristRecord(@PathVariable("id") Long id){
+
+        try{
+          String status = service.deleteTourist(id);
+          return new ResponseEntity<String>(status,HttpStatus.OK);
+        } catch (TouristNotFoundException e) {
+            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
 
 

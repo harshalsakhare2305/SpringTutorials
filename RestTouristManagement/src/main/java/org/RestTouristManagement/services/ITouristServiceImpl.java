@@ -91,5 +91,17 @@ public class ITouristServiceImpl implements ITouristService{
         }
     }
 
+    @Override
+    public String deleteTourist(Long id) throws TouristNotFoundException {
+        Optional<Tourist> option = repo.findById(id);
+
+        if(option.isPresent()){
+            repo.delete(option.get());
+            return new String("The Tourist With id : "+ id + " is Deleted Successfully");
+        }else{
+            throw new TouristNotFoundException("Tourist with the id : "+ id + " Not Found so Can't be Deleted");
+        }
+    }
+
 
 }
