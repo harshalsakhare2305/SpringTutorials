@@ -13,5 +13,7 @@ public interface ITouristService {
 
     public String registerTourist(Tourist tourist);
 
+    public String updateTouristrecord(Long id,Tourist tourist) throws TouristNotFoundException;
+
 
 }
