@@ -71,6 +71,19 @@ public class TouristController {
         }
     }
 
+    @PatchMapping("/update/{id}/{newbudget}")
+    public ResponseEntity<String> updateTouristBudget(@PathVariable("id") Long id,@PathVariable("newbudget") Long newbudget){
+
+        try {
+            String status=service.updateTouristBudget(id,newbudget);
+            return new ResponseEntity<String>(status,HttpStatus.OK);
+        }catch (TouristNotFoundException e){
+            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+
 
 
 }

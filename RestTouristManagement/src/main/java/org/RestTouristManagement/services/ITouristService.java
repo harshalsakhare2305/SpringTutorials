@@ -17,5 +17,7 @@ public interface ITouristService {
 
     public String updateTouristrecord2(Tourist tourist) throws TouristNotFoundException;
 
+    public String updateTouristBudget(Long id,Long newbudget)  throws TouristNotFoundException;
+
 
 }

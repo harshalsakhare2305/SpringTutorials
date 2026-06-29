@@ -75,4 +75,21 @@ public class ITouristServiceImpl implements ITouristService{
         }
 
     }
+
+    @Override
+    public String updateTouristBudget(Long id, Long newbudget) throws TouristNotFoundException {
+
+        Optional<Tourist> option = repo.findById(id);
+
+        if(option.isPresent()){
+            Tourist tourist = option.get();
+            tourist.setBudget(newbudget);
+            repo.save(tourist);
+            return new String("Tourist with id : "+ id+ "Updated Successfully");
+        }else{
+            throw new TouristNotFoundException("Tourist with the id : "+ id + " Not Found so Cant be Updated");
+        }
+    }
+
+
 }
