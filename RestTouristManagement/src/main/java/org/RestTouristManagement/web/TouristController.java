@@ -5,11 +5,8 @@ import org.RestTouristManagement.exceptions.TouristNotFoundException;
 import org.RestTouristManagement.model.Tourist;
 import org.RestTouristManagement.services.ITouristService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.support.HttpAccessor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,58 +36,49 @@ public class TouristController {
     }
 
     @GetMapping("/tourist/{id}")
-    public ResponseEntity<?> getTouristById(@PathVariable("id") Long id){
+    public ResponseEntity<?> getTouristById(@PathVariable("id") Long id) throws TouristNotFoundException {
 
-        try {
+
             Tourist tourist = service.findToursitByid(id);
             return new ResponseEntity<Tourist>(tourist,HttpStatus.OK);
-        }catch (TouristNotFoundException e){
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        }
+
+
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> UpdateTourist(@PathVariable("id") Long id,@RequestBody Tourist tourist){
+    public ResponseEntity<String> UpdateTourist(@PathVariable("id") Long id,@RequestBody Tourist tourist) throws TouristNotFoundException {
 
-        try {
+
             String msg = service.updateTouristrecord(id,tourist);
             return new ResponseEntity<String>(msg,HttpStatus.OK);
-        }catch (TouristNotFoundException e){
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        }
+
     }
 
     @PutMapping("/update")
-    public ResponseEntity<String> UpdateTourist2(@RequestBody Tourist tourist){
+    public ResponseEntity<String> UpdateTourist2(@RequestBody Tourist tourist) throws TouristNotFoundException {
 
-        try {
+
             String msg = service.updateTouristrecord2(tourist);
             return new ResponseEntity<String>(msg,HttpStatus.OK);
-        }catch (TouristNotFoundException e){
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        }
+
     }
 
     @PatchMapping("/update/{id}/{newbudget}")
-    public ResponseEntity<String> updateTouristBudget(@PathVariable("id") Long id,@PathVariable("newbudget") Long newbudget){
+    public ResponseEntity<String> updateTouristBudget(@PathVariable("id") Long id,@PathVariable("newbudget") Long newbudget) throws TouristNotFoundException {
 
-        try {
+
             String status=service.updateTouristBudget(id,newbudget);
             return new ResponseEntity<String>(status,HttpStatus.OK);
-        }catch (TouristNotFoundException e){
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        }
+
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteTouristRecord(@PathVariable("id") Long id){
+    public ResponseEntity<String> deleteTouristRecord(@PathVariable("id") Long id) throws TouristNotFoundException {
 
-        try{
+
           String status = service.deleteTourist(id);
           return new ResponseEntity<String>(status,HttpStatus.OK);
-        } catch (TouristNotFoundException e) {
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-        }
+
     }
 
 
