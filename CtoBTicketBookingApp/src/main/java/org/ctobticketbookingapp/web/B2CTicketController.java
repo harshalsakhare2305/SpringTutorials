@@ -6,10 +6,7 @@ import org.ctobticketbookingapp.service.ITicketServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +21,16 @@ public class B2CTicketController {
         return this;
     }
 
+    @GetMapping("/home")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/book-ticket-page")
+    public String bookTicketPage() {
+        return "book-ticket";
+    }
+
     @PostMapping("/register")
     public String registerPassenger(@ModelAttribute Passenger passenger, Model model){
         Passenger pass = services.registerPassenger(passenger);
@@ -31,24 +38,41 @@ public class B2CTicketController {
         return "redirect:/home";
     }
 
-    @PostMapping("/book-ticket/{passengerId}")
-    public String bookTicket(@PathVariable ("passengerId") Long passengerId, Model model){
-        Ticket ticket=services.bookTicket(passengerId);
-        model.addAttribute("ticket/"+passengerId,ticket);
+    @GetMapping("/book-ticket/{passengerId}")
+    public String showTicket(@PathVariable ("passengerId") Long passengerId){
         return "showticket";
+    }
+
+
+
+    @PostMapping("/book-ticket")
+    public String bookTicket(@RequestParam Long passengerId, Model model) {
+
+        Ticket ticket = services.bookTicket(passengerId);
+
+        model.addAttribute("ticket", ticket);
+
+        return "showticket";
+    }
+
+
+
+    @GetMapping("/get-ticket-page")
+    public String getTicketPage(){
+        return "get-ticket";
     }
 
     @GetMapping("/get-ticket/{ticketId}")
     public String getTicket(@PathVariable("ticketId") Long ticketId,Model model){
         Ticket ticket = services.getTicket(ticketId);
-        model.addAttribute("ticket/"+ticketId,ticket);
+        model.addAttribute("ticket",ticket);
         return "showticket";
     }
 
     @GetMapping("/getAllpassengers")
     public String getAllPassenger(Model model){
         List<Passenger> list = services.getAllPassenger();
-        model.addAttribute("allpassenger",list);
+        model.addAttribute("passengers",list);
         return "showallpassenger";
     }
 

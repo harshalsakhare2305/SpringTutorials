@@ -2,10 +2,11 @@ package org.ctobticketbookingapp.service;
 
 import org.ctobticketbookingapp.model.Passenger;
 import org.ctobticketbookingapp.model.Ticket;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-
+@Service
 public class ITickerServices implements ITicketServices{
 
      private String url = "http://localhost:8080/";
@@ -26,12 +27,12 @@ public class ITickerServices implements ITicketServices{
     @Override
     public Ticket getTicket(Long ticketId) {
         RestTemplate template =new RestTemplate();
-        return template.postForEntity(url+"get-ticket/"+ticketId,null,Ticket.class).getBody();
+        return template.getForEntity(url+"get-ticket/"+ticketId,Ticket.class).getBody();
     }
 
     @Override
     public List<Passenger> getAllPassenger() {
         RestTemplate template =new RestTemplate();
-        return template.postForEntity(url+"getallpassengers",null,List.class).getBody();
+        return template.getForEntity(url+"getallpassengers",List.class).getBody();
     }
 }

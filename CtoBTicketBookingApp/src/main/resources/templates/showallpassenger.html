@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Passengers</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<header>
+
+    Registered Passengers
+
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <table class="table">
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Name</th>
+
+                <th>Age</th>
+
+                <th>Journey Date</th>
+
+                <th>Boarding</th>
+
+                <th>Destination</th>
+
+            </tr>
+
+            <tr th:each="passenger : ${passengers}">
+
+                <td th:text="${passenger.id}"></td>
+
+                <td th:text="${passenger.name}"></td>
+
+                <td th:text="${passenger.age}"></td>
+
+                <td th:text="${passenger.dateofJourney}"></td>
+
+                <td th:text="${passenger.boarding}"></td>
+
+                <td th:text="${passenger.destination}"></td>
+
+            </tr>
+
+        </table>
+
+        <div class="back">
+
+            <a th:href="@{/home}" class="btn">
+
+                Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

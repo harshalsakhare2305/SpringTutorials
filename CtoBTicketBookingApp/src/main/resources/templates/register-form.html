@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Passenger</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header>
+    Passenger Registration
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <form th:action="@{/register}" th:object="${emptypassenger}" method="post">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" th:field="*{name}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" th:field="*{age}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Date of Journey</label>
+                <input type="date" th:field="*{dateofJourney}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Boarding Station</label>
+                <input type="text" th:field="*{boarding}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination</label>
+                <input type="text" th:field="*{destination}" required>
+            </div>
+
+            <button type="submit">
+                Register Passenger
+            </button>
+
+        </form>
+
+        <div class="back">
+            <a th:href="@{/home}" class="btn">Home</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

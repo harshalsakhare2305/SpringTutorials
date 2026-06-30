@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>B2C Ticket Booking</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header>
+    B2C Railway Ticket Booking
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1 class="title">Welcome</h1>
+
+        <p style="text-align:center">
+            Book tickets easily using our Railway Reservation System.
+        </p>
+
+        <div class="home-buttons">
+
+            <a th:href="@{/register-passenger}" class="btn">
+                Register Passenger
+            </a>
+
+            <a th:href="@{/book-ticket-page}" class="btn">
+                Book Ticket
+            </a>
+
+            <a th:href="@{/get-ticket-page}" class="btn">
+                Get Ticket
+            </a>
+
+            <a th:href="@{/getAllpassengers}" class="btn">
+                View All Passengers
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

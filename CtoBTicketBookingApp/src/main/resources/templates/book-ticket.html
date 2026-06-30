@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Book Ticket</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header>
+    Book Ticket
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <form th:action="@{/book-ticket}" method="post">
+
+            <div class="form-group">
+                <label>Passenger ID</label>
+                <input type="number"
+                       name="passengerId"
+                       required>
+            </div>
+
+            <button type="submit">
+                Book Ticket
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+</body>
+
+</html>

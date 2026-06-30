@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Ticket</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<header>
+
+    Ticket Details
+
+</header>
+
+<div class="container">
+
+    <div class="ticket">
+
+        <h2>Railway Ticket</h2>
+
+        <p><b>Ticket ID :</b> <span th:text="${ticket.ticket_id}"></span></p>
+
+        <p><b>PNR :</b> <span th:text="${ticket.pnr}"></span></p>
+
+        <p><b>Fare :</b> ₹ <span th:text="${ticket.fare}"></span></p>
+
+        <div class="back">
+
+            <a th:href="@{/home}" class="btn">
+
+                Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
