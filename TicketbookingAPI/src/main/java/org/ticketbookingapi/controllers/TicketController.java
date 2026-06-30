@@ -1,5 +1,9 @@
 package org.ticketbookingapi.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.servers.Server;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +16,14 @@ import org.ticketbookingapi.services.ITicketService;
 
 import java.util.List;
 
+@Tag(
+        name = "Ticket Booking API",
+        description = "This api has  various endpoint and this is is swagger documentation"
+)
+@Server(
+        url = "http://localhost:8080/"
+)
+
 @RestController
 public class TicketController {
 
@@ -23,6 +35,10 @@ public class TicketController {
         return this;
     }
 
+    @Operation(
+            summary = "Post API for registering the new Passenger",
+            description = "This api take the passenger object and register it "
+    )
     @PostMapping("/register-passenger")
     public ResponseEntity<Passenger> registerPassennger(@RequestBody Passenger passenger){
         Passenger p = service.registerPassenger(passenger);
@@ -30,7 +46,7 @@ public class TicketController {
     }
 
     @PostMapping("/book-ticket/{passengerId}")
-    public ResponseEntity<Ticket> bookTicket(@PathVariable("passengerId") Long passengerId) throws PassengerNotFoundException{
+    public ResponseEntity<Ticket> bookTicket(@Parameter(description = "Passenger object id") @PathVariable("passengerId") Long passengerId) throws PassengerNotFoundException{
        Ticket ticket= service.bookTicket(passengerId);
        return new ResponseEntity<Ticket>(ticket,HttpStatus.CREATED);
     }
