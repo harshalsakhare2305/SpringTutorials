@@ -1,33 +1,37 @@
 package org.ctobticketbookingapp.service;
 
 import org.ctobticketbookingapp.model.Passenger;
-import org.ctobticketbookingapp.model.TIcket;
+import org.ctobticketbookingapp.model.Ticket;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 public class ITickerServices implements ITicketServices{
 
-     private String registerurl = "http://localhost:8080/register-passenger";
+     private String url = "http://localhost:8080/";
 
     @Override
     public Passenger registerPassenger(Passenger passenger) {
         RestTemplate template =new RestTemplate();
-        Passenger p =template.postForEntity(registerurl,Passenger.class,);
+        Passenger p =template.postForEntity(url+"register-passenger",passenger,Passenger.class).getBody();
+        return p;
     }
 
     @Override
-    public TIcket bookTicket(Long id) {
-        return null;
+    public Ticket bookTicket(Long id) {
+        RestTemplate template =new RestTemplate();
+        return template.postForEntity(url+"book-ticket/"+id,null, Ticket.class).getBody();
     }
 
     @Override
-    public TIcket getTicket(Long ticketId) {
-        return null;
+    public Ticket getTicket(Long ticketId) {
+        RestTemplate template =new RestTemplate();
+        return template.postForEntity(url+"get-ticket/"+ticketId,null,Ticket.class).getBody();
     }
 
     @Override
     public List<Passenger> getAllPassenger() {
-        return List.of();
+        RestTemplate template =new RestTemplate();
+        return template.postForEntity(url+"getallpassengers",null,List.class).getBody();
     }
 }

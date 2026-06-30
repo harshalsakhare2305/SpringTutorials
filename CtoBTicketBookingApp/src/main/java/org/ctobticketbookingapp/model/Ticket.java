@@ -1,6 +1,6 @@
 package org.ctobticketbookingapp.model;
 
-public class TIcket {
+public class Ticket {
 
     private Long ticket_id;
 
@@ -8,19 +8,19 @@ public class TIcket {
 
     private Double fare;
 
-    public TIcket(Double fare, String pnr) {
+    public Ticket(Double fare, String pnr) {
         this.fare = fare;
         this.pnr = pnr;
     }
 
-    public TIcket() {
+    public Ticket() {
     }
 
     public Double getFare() {
         return fare;
     }
 
-    public TIcket setFare(Double fare) {
+    public Ticket setFare(Double fare) {
         this.fare = fare;
         return this;
     }
@@ -29,7 +29,7 @@ public class TIcket {
         return pnr;
     }
 
-    public TIcket setPnr(String pnr) {
+    public Ticket setPnr(String pnr) {
         this.pnr = pnr;
         return this;
     }
@@ -38,7 +38,7 @@ public class TIcket {
         return ticket_id;
     }
 
-    public TIcket setTicket_id(Long ticket_id) {
+    public Ticket setTicket_id(Long ticket_id) {
         this.ticket_id = ticket_id;
         return this;
     }
