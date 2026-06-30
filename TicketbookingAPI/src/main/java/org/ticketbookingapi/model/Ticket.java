@@ -1,5 +1,6 @@
 package org.ticketbookingapi.model;
 
+
 import jakarta.persistence.*;
 
 
@@ -17,6 +18,7 @@ public class Ticket {
 
     @OneToOne
     @JoinColumn(name = "passenger_id")
+
     private  Passenger passenger;
 
 

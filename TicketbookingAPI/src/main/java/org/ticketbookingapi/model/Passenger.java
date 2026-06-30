@@ -1,5 +1,6 @@
 package org.ticketbookingapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -22,6 +23,7 @@ public class Passenger {
     private Integer age;
 
     @OneToOne(mappedBy = "passenger",cascade =CascadeType.ALL)
+    @JsonIgnore
     private Ticket ticket;
 
 

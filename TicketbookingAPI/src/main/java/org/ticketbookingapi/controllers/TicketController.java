@@ -10,6 +10,8 @@ import org.ticketbookingapi.model.Passenger;
 import org.ticketbookingapi.model.Ticket;
 import org.ticketbookingapi.services.ITicketService;
 
+import java.util.List;
+
 @RestController
 public class TicketController {
 
@@ -37,5 +39,10 @@ public class TicketController {
     public ResponseEntity<Ticket> getTicket(@PathVariable("ticketId") Long ticketId) throws TicketNotFoundException {
         Ticket ticket = service.getTicket(ticketId);
         return new ResponseEntity<Ticket>(ticket,HttpStatus.OK);
+    }
+
+    @GetMapping("/getallpassengers")
+    public ResponseEntity<List> getAllPassengers(){
+        return new ResponseEntity<List>(service.getAllPassenger(),HttpStatus.OK);
     }
 }

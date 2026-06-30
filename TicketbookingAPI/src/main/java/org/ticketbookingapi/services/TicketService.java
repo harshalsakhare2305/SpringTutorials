@@ -1,6 +1,7 @@
 package org.ticketbookingapi.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.ticketbookingapi.exceptions.PassengerNotFoundException;
 import org.ticketbookingapi.exceptions.TicketNotFoundException;
 import org.ticketbookingapi.model.Passenger;
@@ -8,8 +9,10 @@ import org.ticketbookingapi.model.Ticket;
 import org.ticketbookingapi.repo.IPassengerRepo;
 import org.ticketbookingapi.repo.ITicketRepo;
 
+import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TicketService implements ITicketService{
 
     private IPassengerRepo passengerRepo;
@@ -62,4 +65,11 @@ public class TicketService implements ITicketService{
             throw new TicketNotFoundException("Ticket With Id : "+ ticketId+ " Doesn't Exists");
         }
     }
+
+    @Override
+    public List<Passenger> getAllPassenger() {
+        return  passengerRepo.findAll();
+    }
+
+
 }
