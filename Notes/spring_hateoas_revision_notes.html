@@ -1,0 +1,118 @@
+<div style="font-family:var(--font-sans);padding:1rem 0">
+
+<div style="margin-bottom:20px">
+  <h1 style="margin:0 0 4px">Spring HATEOAS — quick revision</h1>
+  <p style="margin:0;color:var(--text-secondary);font-size:14px">Hypermedia As The Engine Of Application State</p>
+</div>
+
+<!-- Row 1: Concept + Core classes -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+
+  <div style="background:var(--surface-1);border:0.5px solid var(--border);border-radius:12px;padding:16px">
+    <h3 style="margin:0 0 8px;color:var(--text-accent)"><i class="ti ti-link" style="font-size:16px;margin-right:6px"></i>What it is</h3>
+    <p style="margin:0 0 8px;font-size:13px;line-height:1.6;color:var(--text-secondary)">REST responses include <code>_links</code> telling the client what actions are possible next — like hyperlinks on a webpage.</p>
+    <div style="background:var(--surface-2);border-radius:8px;padding:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-secondary)">
+      "id":1,<br>"_links":{ "self":{"href":"/users/1"} }
+    </div>
+  </div>
+
+  <div style="background:var(--surface-1);border:0.5px solid var(--border);border-radius:12px;padding:16px">
+    <h3 style="margin:0 0 8px;color:var(--text-accent)"><i class="ti ti-package" style="font-size:16px;margin-right:6px"></i>Core classes</h3>
+    <table style="width:100%;font-size:12px;border-collapse:collapse">
+      <tr><td style="padding:3px 0;color:var(--text-primary)"><code>RepresentationModel&lt;T&gt;</code></td><td style="color:var(--text-secondary)">holds links</td></tr>
+      <tr><td style="padding:3px 0;color:var(--text-primary)"><code>Link</code></td><td style="color:var(--text-secondary)">rel + href</td></tr>
+      <tr><td style="padding:3px 0;color:var(--text-primary)"><code>WebMvcLinkBuilder</code></td><td style="color:var(--text-secondary)">builds links</td></tr>
+      <tr><td style="padding:3px 0;color:var(--text-primary)"><code>EntityModel&lt;T&gt;</code></td><td style="color:var(--text-secondary)">single item</td></tr>
+      <tr><td style="padding:3px 0;color:var(--text-primary)"><code>CollectionModel&lt;T&gt;</code></td><td style="color:var(--text-secondary)">list</td></tr>
+      <tr><td style="padding:3px 0;color:var(--text-primary)"><code>PagedModel&lt;T&gt;</code></td><td style="color:var(--text-secondary)">pagination</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Row 2: RepresentationModel usage -->
+<div style="background:var(--surface-1);border:0.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px">
+  <h3 style="margin:0 0 8px;color:var(--text-accent)"><i class="ti ti-file-code" style="font-size:16px;margin-right:6px"></i>RepresentationModel in the model class</h3>
+  <div style="background:var(--surface-2);border-radius:8px;padding:10px;font-family:var(--font-mono);font-size:11.5px;line-height:1.6;color:var(--text-primary);overflow-x:auto;white-space:pre">
+class UserModel extends RepresentationModel&lt;UserModel&gt; {
+    Long id; String name; String email;
+}
+
+user.add(linkTo(methodOn(UserController.class)
+        .getUser(id)).withSelfRel());</div>
+  <p style="margin:8px 0 0;font-size:12px;color:var(--text-secondary)">Self-referencing generic gives the model <code>add()</code> / <code>getLinks()</code> and auto <code>_links</code> serialization.</p>
+</div>
+
+<!-- Row 3: WebMvcLinkBuilder -->
+<div style="background:var(--surface-1);border:0.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px">
+  <h3 style="margin:0 0 8px;color:var(--text-accent)"><i class="ti ti-route" style="font-size:16px;margin-right:6px"></i>Generating Link with WebMvcLinkBuilder</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+    <div style="background:var(--surface-2);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;margin-bottom:4px;color:var(--text-primary)">1. linkTo(methodOn) <span style="color:var(--text-accent);font-size:11px">recommended</span></div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary)">linkTo(methodOn(UserController.class).getUser(id)).withSelfRel();</div>
+    </div>
+    <div style="background:var(--surface-2);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;margin-bottom:4px;color:var(--text-primary)">2. linkTo + slash</div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary)">linkTo(UserController.class).slash(id).withSelfRel();</div>
+    </div>
+    <div style="background:var(--surface-2);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;margin-bottom:4px;color:var(--text-primary)">3. Direct Link.of()</div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary)">Link.of("/users/"+id, "self");</div>
+    </div>
+  </div>
+</div>
+
+<!-- Row 4: Other approaches -->
+<div style="background:var(--surface-1);border:0.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px">
+  <h3 style="margin:0 0 8px;color:var(--text-accent)"><i class="ti ti-stack-2" style="font-size:16px;margin-right:6px"></i>Other ways to implement HATEOAS</h3>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+    <div style="border:0.5px solid var(--border);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;color:var(--text-primary)">EntityModel wrapper</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:3px">wrap in controller, keep entity clean</div>
+    </div>
+    <div style="border:0.5px solid var(--border);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;color:var(--text-primary)">CollectionModel</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:3px">for returning lists</div>
+    </div>
+    <div style="border:0.5px solid var(--border);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;color:var(--text-primary)">PagedModel + assembler</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:3px">next / prev / first / last links</div>
+    </div>
+    <div style="border:0.5px solid var(--border);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;color:var(--text-primary)">RepresentationModelAssembler</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:3px">clean, reusable link logic</div>
+    </div>
+    <div style="border:0.5px solid var(--border);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;color:var(--text-primary)">Affordances (HAL-FORMS)</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:3px">describes allowed HTTP verbs</div>
+    </div>
+    <div style="border:0.5px solid var(--border);border-radius:8px;padding:10px">
+      <div style="font-size:12px;font-weight:500;color:var(--text-primary)">Spring Data REST</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:3px">auto-HATEOAS, zero boilerplate</div>
+    </div>
+  </div>
+</div>
+
+<!-- Row 5: Real world examples -->
+<div style="background:var(--surface-1);border:0.5px solid var(--border);border-radius:12px;padding:16px">
+  <h3 style="margin:0 0 8px;color:var(--text-accent)"><i class="ti ti-bulb" style="font-size:16px;margin-right:6px"></i>Real-world examples</h3>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+    <div style="text-align:center">
+      <i class="ti ti-shopping-cart" style="font-size:20px;color:var(--text-accent)"></i>
+      <div style="font-size:11.5px;color:var(--text-secondary);margin-top:4px">E-commerce orders — cancel / pay links</div>
+    </div>
+    <div style="text-align:center">
+      <i class="ti ti-building-bank" style="font-size:20px;color:var(--text-accent)"></i>
+      <div style="font-size:11.5px;color:var(--text-secondary);margin-top:4px">Banking — links reflect business rules</div>
+    </div>
+    <div style="text-align:center">
+      <i class="ti ti-brand-github" style="font-size:20px;color:var(--text-accent)"></i>
+      <div style="font-size:11.5px;color:var(--text-secondary);margin-top:4px">GitHub API — url / comments_url fields</div>
+    </div>
+    <div style="text-align:center">
+      <i class="ti ti-movie" style="font-size:20px;color:var(--text-accent)"></i>
+      <div style="font-size:11.5px;color:var(--text-secondary);margin-top:4px">Streaming apps — play / rate by tier</div>
+    </div>
+  </div>
+</div>
+
+</div>
