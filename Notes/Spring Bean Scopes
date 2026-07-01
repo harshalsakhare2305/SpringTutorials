@@ -1,0 +1,70 @@
+# Spring Bean Scopes — Quick Notes
+
+Bean scope defines **how many instances** of a bean Spring creates and **how long they live**.
+
+---
+
+## 1. Singleton (default)
+- **Definition:** One instance per Spring container, shared everywhere.
+- **Usage:** `@Scope("singleton")` or nothing (default).
+- **Real-life use:** Stateless services — `ProductService`, `PaymentGateway`, `EmailService`.
+- **Analogy:** One bank teller window serving all customers.
+
+## 2. Prototype
+- **Definition:** New instance every time the bean is requested.
+- **Usage:** `@Scope("prototype")`
+- **Real-life use:** Stateful, short-lived objects — `InvoiceGenerator`, `ReportBuilder`.
+- **Analogy:** A fresh receipt pad for every new order.
+- **Note:** Spring does NOT manage full lifecycle (no `@PreDestroy` callback).
+
+## 3. Request *(web-aware)*
+- **Definition:** New instance per HTTP request; dies when request ends.
+- **Usage:**
+  ```java
+  @Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
+  ```
+- **Real-life use:** Per-call metadata — `RequestAuditInfo` (request ID, IP, timestamp).
+- **Analogy:** A visitor badge valid only for one visit.
+
+## 4. Session *(web-aware)*
+- **Definition:** New instance per HTTP session; persists across multiple requests until logout/timeout.
+- **Usage:**
+  ```java
+  @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+  ```
+- **Real-life use:** User-specific data — `ShoppingCart`, `LoggedInUserProfile`.
+- **Analogy:** A shopping trolley — yours for the whole visit, emptied after you leave.
+
+## 5. Application *(web-aware)*
+- **Definition:** One instance per `ServletContext` (shared across whole web app).
+- **Real-life use:** Site-wide shared data — visitor counter, app-wide config cache.
+
+## 6. WebSocket *(web-aware)*
+- **Definition:** One instance per WebSocket session.
+- **Real-life use:** Live features — chat session, real-time order tracking.
+
+---
+
+## Why `proxyMode` is needed
+`request`/`session` beans are shorter-lived than the `singleton` beans (like Controllers) that inject them. Spring injects a **proxy** that delegates to the correct real instance at runtime, instead of failing at startup.
+
+---
+
+## Quick Comparison Table
+
+| Scope | New Instance When | Lives Until | Example Bean |
+|---|---|---|---|
+| singleton | Once (container startup) | Container shuts down | ProductService |
+| prototype | Every `getBean()` call | Caller discards it | InvoiceGenerator |
+| request | Every HTTP request | Request completes | RequestAuditInfo |
+| session | Every HTTP session | Session ends/logout | ShoppingCart |
+| application | Once per ServletContext | App shuts down | VisitorCounter |
+| websocket | Every WebSocket session | Socket closes | ChatSession |
+
+---
+
+## Rule of Thumb
+1. No state held → **singleton**
+2. Needs isolated state per creation → **prototype**
+3. State relevant to one HTTP call only → **request**
+4. State relevant to one user across calls → **session**
