@@ -13,6 +13,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -22,6 +24,7 @@ public class JavaConfig {
 
     @Autowired
     private UserDetailsService userDetailService;
+
 
     @Bean
     public SecurityFilterChain getSecurityFilterChain(HttpSecurity http){
@@ -43,22 +46,33 @@ public class JavaConfig {
         return http.build();
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
    public AuthenticationProvider getAuthprovider(){
-       DaoAuthenticationProvider dao =new DaoAuthenticationProvider(
+
+        DaoAuthenticationProvider dao =new DaoAuthenticationProvider(
                userDetailService
        );
+
+        dao.setPasswordEncoder(passwordEncoder());
 
        return dao;
 
    }
 
 
-    @Bean
-    public UserDetailsService createUserDetails(){
-        UserDetails user = User.withDefaultPasswordEncoder().username("user").password("123456").roles("USER").build();
 
-        UserDetails admin = User.withDefaultPasswordEncoder().username("admin").password("123456").roles("ADMIN").build();
 
-        return new InMemoryUserDetailsManager(user,admin);
-    }
+//    @Bean
+//    public UserDetailsService createUserDetails(){
+//        UserDetails user = User.withDefaultPasswordEncoder().username("user").password("123456").roles("USER").build();
+//
+//        UserDetails admin = User.withDefaultPasswordEncoder().username("admin").password("123456").roles("ADMIN").build();
+//
+//        return new InMemoryUserDetailsManager(user,admin);
+//    }
 }
