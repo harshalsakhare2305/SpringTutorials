@@ -38,6 +38,8 @@ public class JavaConfig {
     }
 
 
+
+
     @Bean
     public UserDetailsService createUserDetails(){
         UserDetails user = User.withDefaultPasswordEncoder().username("user").password("123456").roles("USER").build();
