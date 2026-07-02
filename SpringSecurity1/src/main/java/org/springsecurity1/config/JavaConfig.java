@@ -40,6 +40,8 @@ public class JavaConfig {
         //Enable access of Application to tools like postman
         http.httpBasic(Customizer.withDefaults());
 
+        http.authorizeHttpRequests(Customizer-> Customizer.requestMatchers("/register-user").permitAll().anyRequest().authenticated());
+
 
         //To make Session as Stateless
         http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
