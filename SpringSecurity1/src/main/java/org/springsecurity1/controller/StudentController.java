@@ -3,6 +3,7 @@ package org.springsecurity1.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +34,11 @@ public class StudentController {
     @GetMapping("get-session-id")
     public ResponseEntity<String> getSessionId(HttpServletRequest http){
         return ResponseEntity.ok("Session id: => "+http.getSession().getId());
+    }
+
+    @GetMapping("/get-csrf")
+    public CsrfToken getcsrfToken(HttpServletRequest http){
+         return (CsrfToken) http.getAttribute("_csrf");
     }
 
 }
